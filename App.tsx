@@ -15,11 +15,11 @@ const App: React.FC = () => {
 
   // Define slides configuration
   const slides = [
-    { component: <Slide0 />, title: "Abertura", subtitle: "Alinhamento Executivo | Governança Locker" },
-    { component: <Slide1 />, title: "", subtitle: "", hideHeader: true }, // Cover slide
+    { component: <Slide1 />, title: "", subtitle: "", hideHeader: true }, // Capa
     { component: <SlidePrinciples />, title: "Princípios", subtitle: "Fundamentos da Governança" },
-    { component: <Slide2 />, title: "Contexto", subtitle: "O que funciona + Onde nasce o ruído" },
     { component: <Slide3 />, title: "Trilho A: Novas Operações", subtitle: "Fluxo de Pedido de Locker" },
+    { component: <Slide2 />, title: "Contexto", subtitle: "O que funciona + Onde nasce o ruído" },
+    { component: <Slide0 />, title: "Abertura", subtitle: "Alinhamento Executivo | Governança Locker" },
     { component: <Slide4 />, title: "Checklist Padrão", subtitle: "Filtro de entrada da Governança" },
     { component: <Slide5 />, title: "Trilho B: Governança Ativa", subtitle: "Nós vamos até a operação (Modelo BTG)" },
     { component: <Slide6 />, title: "Operação em Paralelo", subtitle: "Como rodamos sem conflitos" },

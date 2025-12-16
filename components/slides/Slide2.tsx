@@ -29,18 +29,18 @@ const Slide2: React.FC = () => {
         </div>
 
         {/* Column 2: O ruído atual */}
-        <div className="bg-red-50 rounded-3xl p-8 border border-red-100 flex flex-col relative overflow-hidden">
+        <div className="bg-[#3699BA]/10 rounded-3xl p-8 border border-[#3699BA]/30 flex flex-col relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
-            <AlertTriangle className="w-32 h-32 text-red-600" />
+            <AlertTriangle className="w-32 h-32 text-[#225B8E]" />
           </div>
 
-          <h3 className="text-2xl font-bold font-rubik text-red-600 mb-6 flex items-center gap-3">
+          <h3 className="text-2xl font-bold font-rubik text-[#225B8E] mb-6 flex items-center gap-3">
             <AlertTriangle className="w-8 h-8" /> O ruído atual
           </h3>
-          
+
           <div className="space-y-4 text-gray-700 text-lg">
              <p className="leading-relaxed">
-              Novas operações acionando <strong className="text-red-600">Sistemas / TI direto</strong> sem passar pela governança.
+              Novas operações acionando <strong className="text-[#225B8E]">Sistemas / TI direto</strong> sem passar pela governança.
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-600 ml-2">
               <li>Dispersão de esforço</li>

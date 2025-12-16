@@ -19,9 +19,9 @@ const SlidePrinciples: React.FC = () => {
     <div className="h-full flex flex-col justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {principles.map((principle, index) => (
-          <div 
+          <div
             key={index}
-            className="flex items-center gap-4 bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+            className="flex items-center gap-4 bg-white p-6 rounded-xl shadow-md border border-gray-100"
           >
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#225B8E] to-[#2A898D] flex items-center justify-center text-white">
               <Check className="w-6 h-6" />
