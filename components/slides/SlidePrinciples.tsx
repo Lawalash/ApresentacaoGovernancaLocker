@@ -1,7 +1,7 @@
 import React from "react";
 import { Check } from "lucide-react";
 
-const principles = [
+const PRINCIPLES = [
   "Uma entrada oficial e rastreável",
   "Pedido só existe com chamado",
   "Formalização obrigatória para Governança",
@@ -17,41 +17,63 @@ const principles = [
 export const SlidePrinciples: React.FC = () => {
   return (
     <div className="h-full w-full flex flex-col overflow-hidden">
-      <header className="pb-4">
-        <h2 className="text-4xl font-bold font-rubik bg-clip-text text-transparent bg-gradient-to-r from-[#225B8E] to-[#2A898D]">
-          Princípios Inegociáveis
-        </h2>
-        <p className="font-poppins text-lg mt-2 font-medium text-[#3699BA]">
-          Base mínima para uma esteira simples, rastreável e previsível
-        </p>
-        <div className="h-[2px] w-full mt-4 bg-gradient-to-r from-[#225B8E] to-[#2A898D] opacity-70 rounded-full" />
-      </header>
+      {/* Conteúdo principal em 2 colunas (igual ao layout referência) */}
+      <div className="flex-1 flex flex-col md:flex-row gap-12 overflow-hidden">
+        {/* Coluna esquerda (título + contexto) */}
+        <div className="md:w-1/3 w-full flex flex-col justify-center overflow-hidden">
+          <div className="space-y-6">
+            <div>
+              <p className="text-sm font-semibold font-poppins uppercase tracking-widest mb-2 text-[#225B8E]/60">
+                Governança Locker
+              </p>
 
-      {/* Conteúdo (grid) */}
-      <div className="flex-1 overflow-hidden">
-        <div className="h-full overflow-auto pr-2">
-          <div className="grid grid-cols-2 gap-4">
-            {principles.map((principle, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-4 bg-white p-5 rounded-xl shadow-md border border-slate-100"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#225B8E] to-[#2A898D] flex items-center justify-center text-white">
-                  <Check className="w-6 h-6" />
-                </div>
+              <h2 className="font-rubik text-5xl font-bold leading-tight text-[#225B8E]">
+                PRINCÍPIOS
+                <br />
+                INEGOCIÁVEIS
+              </h2>
+            </div>
 
-                <span className="text-base font-medium text-slate-700 font-poppins leading-snug">
-                  {principle}
-                </span>
-              </div>
-            ))}
+            <div className="h-1 w-24 bg-gradient-to-r from-[#225B8E] to-[#2A898D] rounded-full" />
+
+            <p className="text-base font-poppins text-slate-600 leading-relaxed">
+              Base mínima para manter uma esteira simples, rastreável e previsível
+              nas demandas de Locker (implantação/ativação/integração).
+            </p>
           </div>
         </div>
-      </div>
 
-      {/* Rodapé do conteúdo */}
-      <div className="mt-6 text-center text-[#225B8E]/60 text-sm font-poppins">
-        Princípios fundamentais para a nova esteira de governança
+        {/* Coluna direita (lista) */}
+        <div className="md:w-2/3 w-full overflow-hidden">
+          <div className="h-full overflow-auto pr-2">
+            <div className="space-y-4">
+              {PRINCIPLES.map((principle, index) => (
+                <div
+                  key={`${index}-${principle}`}
+                  className="flex items-start gap-5 pb-4 border-b border-[#225B8E]/10 last:border-b-0"
+                >
+                  <span className="font-rubik font-bold text-lg min-w-[44px] pt-1 text-[#2A898D]">
+                    {String(index + 1).padStart(2, "0")}.
+                  </span>
+
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-[#225B8E] to-[#2A898D] flex items-center justify-center text-white">
+                      <Check className="w-4 h-4" />
+                    </div>
+
+                    <p className="text-base leading-relaxed pt-0.5 font-poppins text-slate-700 font-medium">
+                      {principle}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center text-[#225B8E]/60 text-sm font-poppins">
+              Princípios fundamentais para a nova esteira de governança
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
