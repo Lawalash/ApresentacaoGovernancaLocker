@@ -17,10 +17,10 @@ export const SlidePrinciples: React.FC = () => {
   return (
     <div className="relative h-full w-full flex flex-col">
       {/* Duas colunas */}
-      <div className="flex-1 flex items-start gap-16 pt-6 px-8 overflow-hidden">
+      <div className="flex-1 flex items-center gap-16 pt-6 px-8 overflow-hidden">
         {/* Coluna esquerda — título centralizado verticalmente */}
-        <div className="w-[35%] flex flex-col justify-center">
-          <div className="space-y-6">
+        <div className="w-[35%] flex flex-col justify-center items-center text-center">
+          <div className="space-y-6 max-w-md">
             <div>
               <p className="text-xs font-semibold text-[#225B8E]/60 uppercase tracking-widest mb-2 font-poppins">
                 Governança Locker
@@ -38,8 +38,8 @@ export const SlidePrinciples: React.FC = () => {
         </div>
 
         {/* Coluna direita — princípios com fonte menor */}
-        <div className="w-[65%] flex flex-col overflow-hidden">
-          <div className="space-y-3">
+        <div className="w-[65%] flex flex-col justify-center overflow-hidden">
+          <div className="space-y-3 max-w-4xl w-full mx-auto">
             {PRINCIPLES.map((principle, index) => (
               <div
                 key={principle}
