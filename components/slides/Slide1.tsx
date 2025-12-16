@@ -26,7 +26,7 @@ const Slide1: React.FC = () => {
       </div>
       
       <div className="md:w-1/2 flex justify-center">
-        <Illustration className="w-full max-w-lg drop-shadow-2xl" />
+        <Illustration className="w-full max-w-lg drop-shadow-lg" />
       </div>
     </div>
   );

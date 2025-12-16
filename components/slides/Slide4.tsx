@@ -17,13 +17,13 @@ const Slide4: React.FC = () => {
   return (
     <div className="h-full flex gap-8">
       {/* Left: The Visual Representation of the Email/Form */}
-      <div className="w-full md:w-2/3 bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+      <div className="w-full md:w-2/3 bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
         <div className="bg-[#225B8E] p-4 text-white flex items-center justify-between">
           <span className="font-bold font-rubik">Checklist Obrigatório de Entrada</span>
           <span className="bg-white/20 text-xs px-2 py-1 rounded">Via E-mail</span>
         </div>
-        
-        <div className="p-8 overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
+
+        <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
             <ChecklistItem label="Operação / Cliente" />
             <ChecklistItem label="Segmentos" sub="ID + Nome" />
             
@@ -47,12 +47,12 @@ const Slide4: React.FC = () => {
 
       {/* Right: Rules/Notes */}
       <div className="w-full md:w-1/3 flex flex-col justify-center gap-6">
-        <div className="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-r-xl shadow-md">
-            <h4 className="font-bold text-orange-800 mb-2 font-rubik">Regra de Ouro</h4>
-            <p className="text-orange-900 leading-relaxed">
-                Sem checklist completo, o status permanece como <strong className="bg-orange-200 px-1 rounded">Aguardando Informações</strong>.
+        <div className="bg-[#225B8E]/10 border-l-4 border-[#225B8E] p-6 rounded-r-xl shadow-md">
+            <h4 className="font-bold text-[#225B8E] mb-2 font-rubik">Regra de Ouro</h4>
+            <p className="text-[#1f4f7a] leading-relaxed">
+                Sem checklist completo, o status permanece como <strong className="bg-white px-1 rounded text-[#225B8E]">Aguardando Informações</strong>.
             </p>
-            <p className="text-sm text-orange-800/70 mt-4 italic">
+            <p className="text-sm text-[#225B8E]/80 mt-4 italic">
                 A demanda NÃO entra na esteira de execução sem isso.
             </p>
         </div>

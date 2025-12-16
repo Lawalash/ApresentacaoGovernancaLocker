@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, ChevronLeft, Hexagon } from 'lucide-react';
+import { Hexagon } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -23,10 +23,10 @@ const Layout: React.FC<LayoutProps> = ({
   hideHeader = false
 }) => {
   return (
-    <div className="flex h-screen w-screen bg-slate-50 overflow-hidden text-slate-800">
+    <div className="flex h-screen w-screen bg-slate-50 overflow-hidden text-slate-800 font-poppins">
       {/* Sidebar Left */}
-      <div className="w-24 h-full bg-gradient-to-b from-[#225B8E] to-[#2A898D] flex flex-col items-center justify-between py-8 shadow-2xl z-20 relative">
-        <div className="text-white/80 text-xs font-rubik tracking-widest -rotate-90 mt-12 whitespace-nowrap">
+      <div className="w-24 h-full bg-gradient-to-b from-[#225B8E] to-[#2A898D] flex flex-col items-center justify-between py-8 shadow-lg z-20 relative">
+        <div className="text-white/80 text-xs font-rubik tracking-[0.3em] -rotate-90 mt-12 whitespace-nowrap">
           GOVERNANÇA LOCKER
         </div>
         
@@ -52,44 +52,43 @@ const Layout: React.FC<LayoutProps> = ({
               {title}
             </h1>
             {subtitle && (
-              <p className="text-[#3699BA] font-rubik text-xl mt-2 font-medium">
+              <p className="text-[#3699BA] font-poppins text-xl mt-2 font-semibold tracking-tight">
                 {subtitle}
               </p>
             )}
             {/* Gradient Line Divider */}
-            <div className="h-1.5 w-full bg-gradient-to-r from-[#225B8E] to-[#2A898D] mt-4 rounded-full opacity-80 shadow-sm"></div>
+            <div className="h-1.5 w-full bg-gradient-to-r from-[#225B8E] to-[#2A898D] mt-4 rounded-full opacity-90 shadow-sm"></div>
           </div>
         )}
 
         {/* Scrollable Slide Content */}
-        <div className="flex-1 overflow-y-auto px-16 py-8 relative">
+        <div className="flex-1 px-16 py-8 relative overflow-hidden">
           {children}
         </div>
 
         {/* Navigation - Bottom Right */}
-        <div className="absolute bottom-8 right-12 flex items-center gap-6 z-50">
-           <span className="text-[#225B8E] font-rubik font-bold text-lg opacity-40 mr-4">
+        <div className="absolute bottom-6 right-8 flex items-center gap-3 z-50">
+          <span className="text-[#225B8E] font-rubik font-semibold text-sm opacity-70">
             {currentSlide + 1} / {totalSlides}
           </span>
-          <button 
-            onClick={onPrev} 
+          <button
+            aria-label="Voltar"
+            onClick={onPrev}
             disabled={currentSlide === 0}
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-100 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-[#225B8E]"
+            className="w-10 h-10 flex items-center justify-center rounded-md bg-white/90 shadow-md border border-white/40 text-[#225B8E] disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            {/* Triangle pointing left */}
-             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="rotate-180">
-                <path d="M24 22h-24l12-20z" />
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="rotate-180">
+              <path d="M24 22h-24l12-20z" />
             </svg>
           </button>
-          
-          <button 
-            onClick={onNext} 
+          <button
+            aria-label="Avançar"
+            onClick={onNext}
             disabled={currentSlide === totalSlides - 1}
-            className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-[#225B8E] to-[#2A898D] shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-white"
+            className="w-10 h-10 flex items-center justify-center rounded-md bg-gradient-to-br from-[#225B8E] to-[#2A898D] shadow-md text-white disabled:opacity-30 disabled:cursor-not-allowed"
           >
-             {/* Triangle pointing right */}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="rotate-90 translate-x-1">
-                <path d="M24 22h-24l12-20z" />
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="rotate-90">
+              <path d="M24 22h-24l12-20z" />
             </svg>
           </button>
         </div>

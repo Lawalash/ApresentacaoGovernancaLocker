@@ -38,7 +38,7 @@ const Slide7: React.FC = () => {
 
         <div className="bg-[#3699BA]/10 rounded-2xl p-8 relative">
             <div className="absolute top-0 left-8 -mt-3 bg-[#3699BA] text-white px-3 py-1 text-xs font-bold rounded uppercase">
-                Action Plan
+                Plano de Ação
             </div>
             
             <ol className="relative border-l border-[#3699BA]/30 ml-3 space-y-8 mt-2">
