@@ -1,98 +1,124 @@
-import React from 'react';
-import { ChevronRight, ChevronLeft, Hexagon } from 'lucide-react';
+import React from "react";
+
+// Se Layout.tsx estiver em components/, use este import:
+import timeLogo from "./slides/assets/time-logo.png";
+
+// Se Layout.tsx estiver em components/slides/, use este:
+// import timeLogo from "./assets/time-logo.png";
 
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   subtitle?: string;
-  currentSlide: number;
+  currentSlide: number; // 0-index
   totalSlides: number;
   onNext: () => void;
   onPrev: () => void;
-  hideHeader?: boolean; // For the cover slide if needed, though prompt implies consistent layout
+  hideHeader?: boolean; // true para capa, se necessário
 }
 
-const Layout: React.FC<LayoutProps> = ({ 
-  children, 
-  title, 
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  title,
   subtitle,
-  currentSlide, 
-  totalSlides, 
-  onNext, 
+  currentSlide,
+  totalSlides,
+  onNext,
   onPrev,
-  hideHeader = false
+  hideHeader = false,
 }) => {
-  return (
-    <div className="flex h-screen w-screen bg-slate-50 overflow-hidden text-slate-800">
-      {/* Sidebar Left */}
-      <div className="w-24 h-full bg-gradient-to-b from-[#225B8E] to-[#2A898D] flex flex-col items-center justify-between py-8 shadow-2xl z-20 relative">
-        <div className="text-white/80 text-xs font-rubik tracking-widest -rotate-90 mt-12 whitespace-nowrap">
-          GOVERNANÇA LOCKER
-        </div>
-        
-        {/* Decorative elements representing "circuit" or "tech" */}
-        <div className="flex flex-col gap-4 items-center opacity-30">
-          <div className="w-2 h-2 rounded-full bg-white"></div>
-          <div className="w-1 h-12 bg-white rounded-full"></div>
-          <div className="w-2 h-2 rounded-full bg-white"></div>
-        </div>
+  const isFirst = currentSlide === 0;
+  const isLast = currentSlide === totalSlides - 1;
 
-        {/* Logo Footer Placeholder */}
-        <div className="mb-4">
-          <Hexagon className="text-white w-10 h-10 stroke-[1.5]" />
-        </div>
-      </div>
+  return (
+    <div className="flex h-screen w-screen overflow-hidden bg-white font-poppins text-slate-800">
+      {/* Sidebar Left (novo layout com logo) */}
+      <aside className="h-full w-[4%] min-w-[60px] bg-gradient-to-b from-[#225B8E] to-[#2A898D] flex flex-col justify-end items-center pb-8 shadow-lg z-20 shrink-0">
+        <img
+          src={timeLogo}
+          alt="Logo TD&IA"
+          className="object-contain rotate-90"
+          style={{ maxWidth: "450%", height: "auto", marginBottom: "110px" }}
+        />
+      </aside>
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col relative h-full">
-        {/* Top Header Area */}
+        {/* Header */}
         {!hideHeader && title && (
-          <div className="pt-10 px-16 pb-4 flex-none z-10 bg-slate-50">
-            <h1 className="text-4xl md:text-5xl font-bold font-rubik uppercase bg-clip-text text-transparent bg-gradient-to-r from-[#225B8E] to-[#2A898D]">
+          <header className="pt-10 px-16 pb-4 flex-none bg-white">
+            <h1 className="text-4xl md:text-5xl font-bold font-rubik bg-clip-text text-transparent bg-gradient-to-r from-[#225B8E] to-[#2A898D]">
               {title}
             </h1>
+
             {subtitle && (
-              <p className="text-[#3699BA] font-rubik text-xl mt-2 font-medium">
+              <p className="font-poppins text-xl mt-2 font-medium text-[#3699BA]">
                 {subtitle}
               </p>
             )}
-            {/* Gradient Line Divider */}
-            <div className="h-1.5 w-full bg-gradient-to-r from-[#225B8E] to-[#2A898D] mt-4 rounded-full opacity-80 shadow-sm"></div>
-          </div>
+
+            {/* Gradient Divider */}
+            <div className="h-[2px] w-full mt-4 bg-gradient-to-r from-[#225B8E] to-[#2A898D] opacity-70 rounded-full" />
+          </header>
         )}
 
-        {/* Scrollable Slide Content */}
-        <div className="flex-1 overflow-y-auto px-16 py-8 relative">
-          {children}
-        </div>
+        {/* Slide Content */}
+        <main className="flex-1 px-16 py-8 overflow-hidden">{children}</main>
 
-        {/* Navigation - Bottom Right */}
-        <div className="absolute bottom-8 right-12 flex items-center gap-6 z-50">
-           <span className="text-[#225B8E] font-rubik font-bold text-lg opacity-40 mr-4">
+        {/* Navigation (triângulos discretos, canto inferior direito) */}
+        <footer className="absolute bottom-6 right-8 flex items-center gap-5 z-50">
+          <span className="font-poppins text-sm font-medium text-[#225B8E] opacity-60">
             {currentSlide + 1} / {totalSlides}
           </span>
-          <button 
-            onClick={onPrev} 
-            disabled={currentSlide === 0}
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-100 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-[#225B8E]"
-          >
-            {/* Triangle pointing left */}
-             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="rotate-180">
-                <path d="M24 22h-24l12-20z" />
-            </svg>
-          </button>
-          
-          <button 
-            onClick={onNext} 
-            disabled={currentSlide === totalSlides - 1}
-            className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-[#225B8E] to-[#2A898D] shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-white"
-          >
-             {/* Triangle pointing right */}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="rotate-90 translate-x-1">
-                <path d="M24 22h-24l12-20z" />
-            </svg>
-          </button>
-        </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onPrev}
+              disabled={isFirst}
+              aria-label="Voltar"
+              className={`p-2 rounded-full transition-colors ${
+                isFirst
+                  ? "opacity-30 cursor-not-allowed"
+                  : "hover:bg-black/5"
+              }`}
+            >
+              {/* Triângulo esquerda */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="text-[#225B8E]"
+                style={{ transform: "rotate(180deg)" }}
+              >
+                <path d="M24 22H0L12 2z" />
+              </svg>
+            </button>
+
+            <button
+              onClick={onNext}
+              disabled={isLast}
+              aria-label="Avançar"
+              className={`p-2 rounded-full transition-colors ${
+                isLast
+                  ? "opacity-30 cursor-not-allowed"
+                  : "hover:bg-black/5"
+              }`}
+            >
+              {/* Triângulo direita */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="text-[#2A898D]"
+                style={{ transform: "rotate(0deg)" }}
+              >
+                <path d="M24 22H0L12 2z" />
+              </svg>
+            </button>
+          </div>
+        </footer>
       </div>
     </div>
   );
