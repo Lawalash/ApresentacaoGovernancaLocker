@@ -1,40 +1,97 @@
-import React from 'react';
-import { Check } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { SlideProps } from "../types";
+import { SlideLayout } from "./SlideLayout";
 
-const principles = [
-  "Uma entrada oficial e rastreável",
-  "Pedido só existe com chamado",
-  "Formalização obrigatória para Governança",
-  "Checklist mínimo antes de executar",
-  "Prioridade definida antes de iniciar",
-  "Execução com responsáveis claros",
-  "Validação simples de “pronto”",
-  "Comunicação e treinamento fazem parte do processo",
-  "Registro do que foi feito (rastreabilidade)",
-  "Redução de ruído e retrabalho"
+const PRINCIPLES = [
+  "ESTAMOS AQUI PARA FAZER MELHOR QUE TODOS.",
+  "FOCAMOS A INOVAÇÃO CONSTANTEMENTE.",
+  "SÓ ACREDITAMOS NO SIMPLES.",
+  "SOMENTE ENTRAMOS NO MERCADO EM QUE PODEMOS FAZER UMA CONTRIBUIÇÃO SIGNIFICATIVA.",
+  "TEMOS FOCO.",
+  "ACREDITAMOS NA COLABORAÇÃO MÚTUA DOS NOSSOS GRUPOS.",
+  "NÃO ACEITAMOS NADA QUE ESTEJA ABAIXO DO NÍVEL DE EXCELÊNCIA.",
+  "SOMOS HUMILDES E HONESTOS PARA ADMITIR NOSSOS ERROS.",
+  "SOMOS CORAJOSOS O SUFICIENTE PARA MUDARMOS QUANDO NECESSÁRIO.",
+  "SOMOS FELIZES COM O QUE FAZEMOS.",
 ];
 
-const SlidePrinciples: React.FC = () => {
+export const SlidePrinciples: React.FC<SlideProps> = (props) => {
   return (
-    <div className="h-full flex flex-col justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {principles.map((principle, index) => (
-          <div
-            key={index}
-            className="flex items-center gap-4 bg-white p-6 rounded-xl shadow-md border border-gray-100"
+    <SlideLayout
+      {...props}
+      title="Princípios Inegociáveis"
+      subtitle="Base para decisão, execução e liderança"
+    >
+      <div className="relative h-full w-full flex flex-col overflow-hidden">
+        {/* Content - Two columns layout */}
+        <div className="flex-1 flex gap-16 relative overflow-hidden">
+          {/* Left side - Title block */}
+          <motion.div
+            className="w-1/3 flex flex-col justify-center"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45 }}
           >
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#225B8E] to-[#2A898D] flex items-center justify-center text-white">
-              <Check className="w-6 h-6" />
+            <div className="space-y-6">
+              <div>
+                <p className="text-sm font-semibold text-[#225B8E]/70 uppercase tracking-widest mb-2">
+                  Governança Locker • TD&IA
+                </p>
+
+                {/* Mantém o layout “grande” à esquerda (igual ao seu exemplo) */}
+                <h2 className="font-rubik text-5xl font-bold text-[#225B8E] leading-tight">
+                  PRINCÍPIOS
+                  <br />
+                  INEGOCIÁVEIS
+                </h2>
+              </div>
+
+              <div className="h-1 w-24 bg-gradient-to-r from-[#225B8E] to-[#2A898D] rounded-full" />
+
+              <p className="text-base text-slate-600 leading-relaxed font-poppins">
+                O que nos guia em cada decisão: simplicidade, inovação constante e excelência
+                na entrega.
+              </p>
             </div>
-            <span className="text-lg font-medium text-gray-700 font-poppins">{principle}</span>
-          </div>
-        ))}
+          </motion.div>
+
+          {/* Right side - Principles list */}
+          <motion.div
+            className="w-2/3 flex flex-col overflow-y-auto pr-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
+          >
+            <div className="space-y-4">
+              {PRINCIPLES.map((principle, index) => (
+                <motion.div
+                  key={principle}
+                  className="flex items-start gap-6 pb-4 border-b border-[#225B8E]/10 last:border-b-0"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25, delay: 0.08 + index * 0.04 }}
+                >
+                  <span className="text-[#2A898D] font-bold text-lg min-w-[44px] pt-1 font-poppins">
+                    {String(index + 1).padStart(2, "0")}.
+                  </span>
+
+                  <p
+                    className={[
+                      "text-base leading-relaxed pt-1 font-poppins",
+                      index === 1
+                        ? "text-slate-900 font-bold"
+                        : "text-slate-700 font-medium",
+                    ].join(" ")}
+                  >
+                    {principle}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
-      <div className="mt-12 text-center text-[#225B8E]/60 text-sm">
-        Princípios fundamentais para a nova esteira de governança
-      </div>
-    </div>
+    </SlideLayout>
   );
 };
-
-export default SlidePrinciples;
