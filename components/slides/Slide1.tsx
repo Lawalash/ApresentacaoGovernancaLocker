@@ -15,7 +15,7 @@ const Slide1: React.FC = () => {
         
         <h2 className="text-3xl text-gray-600 font-light font-poppins">
           Esteira de novas operações <br/>
-          <span className="text-[#3699BA] font-medium">+ Governança ativa (modelo BTG)</span>
+          <span className="text-[#3699BA] font-medium">+ Governança ativa</span>
         </h2>
         
         <div className="h-1 w-32 bg-gradient-to-r from-[#45C5DE] to-[#3BC2C7]"></div>
