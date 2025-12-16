@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Mail, Server, Users, CheckCircle } from 'lucide-react';
 
 const StepCard: React.FC<{ number: number; title: string; desc: string; icon?: React.ReactNode; highlight?: boolean }> = ({ number, title, desc, icon, highlight }) => (
-  <div className={`relative p-5 rounded-xl border transition-all ${highlight ? 'bg-white border-[#2A898D] shadow-xl scale-105 z-10' : 'bg-slate-50 border-gray-200 shadow-sm opacity-90'}`}>
+  <div className={`relative p-5 rounded-xl border ${highlight ? 'bg-white border-[#2A898D] shadow-lg' : 'bg-slate-50 border-gray-200 shadow-md opacity-95'}`}>
     <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shadow-md ${highlight ? 'bg-[#2A898D]' : 'bg-gray-400'}`}>
       {number}
     </div>
@@ -64,7 +64,7 @@ const Slide3: React.FC = () => {
           number={7} 
           title="Conclusão" 
           desc="Governança valida 'pronto' e comunica a operação." 
-          icon={<CheckCircle className="w-5 h-5 text-green-500" />}
+          icon={<CheckCircle className="w-5 h-5 text-[#2A898D]" />}
         />
       </div>
 

@@ -6,7 +6,7 @@ const Slide0: React.FC = () => {
     <div className="h-full flex flex-col justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Card 1: Por que estamos aqui */}
-        <div className="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-[#225B8E] hover:translate-y-[-4px] transition-transform">
+        <div className="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-[#225B8E]">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-[#225B8E]/10 rounded-full">
               <MessageSquare className="w-8 h-8 text-[#225B8E]" />
@@ -19,7 +19,7 @@ const Slide0: React.FC = () => {
         </div>
 
         {/* Card 2: Objetivo */}
-        <div className="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-[#2A898D] hover:translate-y-[-4px] transition-transform">
+        <div className="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-[#2A898D]">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-[#2A898D]/10 rounded-full">
               <Target className="w-8 h-8 text-[#2A898D]" />
@@ -32,7 +32,7 @@ const Slide0: React.FC = () => {
         </div>
 
         {/* Card 3: Agenda */}
-        <div className="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-[#3699BA] hover:translate-y-[-4px] transition-transform">
+        <div className="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-[#3699BA]">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-[#3699BA]/10 rounded-full">
               <Calendar className="w-8 h-8 text-[#3699BA]" />
@@ -49,7 +49,7 @@ const Slide0: React.FC = () => {
         </div>
 
         {/* Card 4: Saídas Esperadas */}
-        <div className="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-[#3BC2C7] hover:translate-y-[-4px] transition-transform">
+        <div className="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-[#3BC2C7]">
            <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-[#3BC2C7]/10 rounded-full">
               <CheckCircle2 className="w-8 h-8 text-[#2A898D]" />
@@ -58,16 +58,16 @@ const Slide0: React.FC = () => {
           </div>
           <ul className="space-y-3 font-medium text-gray-700">
             <li className="flex items-center gap-3">
-              <div className="bg-green-100 text-green-700 p-1 rounded font-bold text-xs">OK</div> Fluxo aprovado
+              <div className="bg-[#2A898D]/15 text-[#2A898D] px-2 py-1 rounded font-bold text-xs">OK</div> Fluxo aprovado
             </li>
             <li className="flex items-center gap-3">
-              <div className="bg-green-100 text-green-700 p-1 rounded font-bold text-xs">OK</div> Checklist aprovado
+              <div className="bg-[#2A898D]/15 text-[#2A898D] px-2 py-1 rounded font-bold text-xs">OK</div> Checklist aprovado
             </li>
             <li className="flex items-center gap-3">
-               <div className="bg-green-100 text-green-700 p-1 rounded font-bold text-xs">OK</div> Regra de entrada
+               <div className="bg-[#2A898D]/15 text-[#2A898D] px-2 py-1 rounded font-bold text-xs">OK</div> Regra de entrada
             </li>
             <li className="flex items-center gap-3">
-               <div className="bg-green-100 text-green-700 p-1 rounded font-bold text-xs">OK</div> Próximos passos
+               <div className="bg-[#2A898D]/15 text-[#2A898D] px-2 py-1 rounded font-bold text-xs">OK</div> Próximos passos
             </li>
           </ul>
         </div>
