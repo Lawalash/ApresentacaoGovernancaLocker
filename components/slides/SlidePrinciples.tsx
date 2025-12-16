@@ -19,7 +19,7 @@ export const SlidePrinciples: React.FC = () => {
       {/* Duas colunas (mantém o layout) */}
       <div className="flex-1 flex items-stretch gap-12 overflow-hidden">
         {/* Coluna esquerda: centraliza o bloco do título */}
-        <div className="w-[35%] flex flex-col justify-center">
+        <div className="w-[55%] flex flex-col justify-center">
           <div className="space-y-5">
             <div>
               <p className="text-xs font-semibold text-[#225B8E]/60 uppercase tracking-widest mb-2 font-poppins">
@@ -39,7 +39,7 @@ export const SlidePrinciples: React.FC = () => {
 
         {/* Coluna direita: lista sem scroll (tamanho ajustado para caber) */}
         <div className="w-[65%] flex flex-col justify-center overflow-hidden">
-          <div className="space-y-2">
+          <div className="space-y-8">
             {PRINCIPLES.map((principle, index) => (
               <div
                 key={principle}
