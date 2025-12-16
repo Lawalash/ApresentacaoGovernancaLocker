@@ -1,60 +1,58 @@
 import React from "react";
 
 const PRINCIPLES = [
-  "Uma entrada oficial e rastreável",
-  "Pedido só existe com chamado",
-  "Formalização obrigatória para Governança",
-  "Checklist mínimo antes de executar",
-  "Prioridade definida antes de iniciar",
-  "Execução com responsáveis claros",
-  "Validação simples de “pronto”",
-  "Comunicação e treinamento fazem parte do processo",
-  "Registro do que foi feito (rastreabilidade)",
-  "Redução de ruído e retrabalho",
+  "ESTAMOS AQUI PARA FAZER MELHOR QUE TODOS.",
+  "FOCAMOS A INOVAÇÃO CONSTANTEMENTE.",
+  "SÓ ACREDITAMOS NO SIMPLES.",
+  "SOMENTE ENTRAMOS NO MERCADO EM QUE PODEMOS FAZER UMA CONTRIBUIÇÃO SIGNIFICATIVA.",
+  "TEMOS FOCO.",
+  "ACREDITAMOS NA COLABORAÇÃO MÚTUA DOS NOSSOS GRUPOS.",
+  "NÃO ACEITAMOS NADA QUE ESTEJA ABAIXO DO NÍVEL DE EXCELÊNCIA.",
+  "SOMOS HUMILDES E HONESTOS PARA ADMITIR NOSSOS ERROS.",
+  "SOMOS CORAJOSOS O SUFICIENTE PARA MUDARMOS QUANDO NECESSÁRIO.",
+  "SOMOS FELIZES COM O QUE FAZEMOS.",
 ];
 
 export const SlidePrinciples: React.FC = () => {
   return (
     <div className="relative h-full w-full flex flex-col">
-      {/* Duas colunas (mesma estrutura) */}
-      <div className="flex-1 flex items-start gap-[27rem] pt-10 overflow-hidden">
-        {/* Coluna esquerda (título) */}
-        <div className="w-1/3 flex flex-col">
-          <div className="space-y-10">
+      {/* Duas colunas - gap reduzido, padding otimizado */}
+      <div className="flex-1 flex items-start gap-16 pt-6 px-8 overflow-hidden">
+        {/* Coluna esquerda (título) - mais compacta */}
+        <div className="w-[35%] flex flex-col">
+          <div className="space-y-6">
             <div>
-              <p className="text-sm font-semibold text-[#225B8E]/60 uppercase tracking-widest mb-3 font-poppins">
+              <p className="text-xs font-semibold text-[#225B8E]/60 uppercase tracking-widest mb-2 font-poppins">
                 Governança Locker
               </p>
 
-              {/* “text-5xl” equivalente ao que você quer (5rem) sem override global */}
-              <h2 className="font-rubik text-[5rem] leading-none font-bold text-[#225B8E]">
+              {/* Título reduzido para 3.5rem, mantém impacto visual */}
+              <h2 className="font-rubik text-[3.5rem] leading-[0.95] font-bold text-[#225B8E]">
                 PRINCÍPIOS
                 <br />
                 INEGOCIÁVEIS
               </h2>
             </div>
 
-            <div className="h-1 w-28 bg-gradient-to-r from-[#225B8E] to-[#2A898D] rounded-full" />
-
-            <p className="font-poppins text-lg text-slate-600 leading-relaxed max-w-[28ch]">
-              Base mínima para uma esteira simples, rastreável e previsível.
-            </p>
+            <div className="h-1 w-24 bg-gradient-to-r from-[#225B8E] to-[#2A898D] rounded-full" />
           </div>
         </div>
 
-        {/* Coluna direita (lista) */}
-        <div className="w-2/3 flex flex-col overflow-hidden">
-          <div className="space-y-6">
+        {/* Coluna direita (lista) - fonte maior, espaçamento compacto */}
+        <div className="w-[65%] flex flex-col overflow-hidden">
+          <div className="space-y-3">
             {PRINCIPLES.map((principle, index) => (
               <div
                 key={principle}
-                className="flex items-start gap-6 py-3 border-b border-[#225B8E]/10 last:border-b-0"
+                className="flex items-start gap-5 py-2 border-b border-[#225B8E]/10 last:border-b-0"
               >
-                <span className="min-w-[56px] text-xl font-rubik font-bold text-[#2A898D]">
+                {/* Número mais legível */}
+                <span className="min-w-[52px] text-[1.5rem] font-rubik font-bold text-[#2A898D] leading-none pt-0.5">
                   {String(index + 1).padStart(2, "0")}.
                 </span>
 
-                <p className="text-xl leading-snug text-slate-800 font-poppins font-medium">
+                {/* Texto aumentado para 1.5rem com leading otimizado + uppercase */}
+                <p className="text-[1.5rem] leading-[1.35] text-slate-800 font-poppins font-semibold">
                   {principle}
                 </p>
               </div>
