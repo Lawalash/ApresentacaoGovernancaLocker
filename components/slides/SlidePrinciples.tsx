@@ -1,5 +1,4 @@
 import React from "react";
-import { Check } from "lucide-react";
 
 const PRINCIPLES = [
   "Uma entrada oficial e rastreável",
@@ -8,7 +7,7 @@ const PRINCIPLES = [
   "Checklist mínimo antes de executar",
   "Prioridade definida antes de iniciar",
   "Execução com responsáveis claros",
-  "Validação simples de “pronto”",
+  "Validação simples de "pronto"",
   "Comunicação e treinamento fazem parte do processo",
   "Registro do que foi feito (rastreabilidade)",
   "Redução de ruído e retrabalho",
@@ -34,28 +33,19 @@ export const SlidePrinciples: React.FC = () => {
             </div>
 
             <div className="h-1 w-24 bg-gradient-to-r from-[#225B8E] to-[#2A898D] rounded-full" />
-
-            <p className="text-base text-slate-600 leading-relaxed font-poppins">
-              Base mínima para uma esteira simples, rastreável e previsível — reduzindo ruído,
-              retrabalho e acionamentos fora do fluxo.
-            </p>
           </div>
         </div>
 
         {/* Coluna direita (lista) */}
-        <div className="w-2/3 flex flex-col overflow-y-auto pr-2">
-          <div className="space-y-4">
+        <div className="w-2/3 flex flex-col">
+          <div className="space-y-3">
             {PRINCIPLES.map((principle, index) => (
               <div
                 key={principle}
-                className="flex items-start gap-6 pb-4 border-b border-[#225B8E]/10 last:border-b-0"
+                className="flex items-start gap-4 pb-3 border-b border-[#225B8E]/10 last:border-b-0"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#225B8E] to-[#2A898D] flex items-center justify-center text-white mt-1">
-                  <Check className="w-6 h-6" />
-                </div>
-
                 <div className="flex-1">
-                  <p className="text-base leading-relaxed text-slate-800 font-poppins font-semibold">
+                  <p className="text-sm leading-relaxed text-slate-800 font-poppins font-semibold">
                     {String(index + 1).padStart(2, "0")}.
                     <span className="ml-2 text-slate-700 font-medium">{principle}</span>
                   </p>
@@ -64,9 +54,6 @@ export const SlidePrinciples: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-6 text-center text-[#225B8E]/60 text-sm font-poppins">
-            Princípios fundamentais para a nova esteira de governança
-          </div>
         </div>
       </div>
     </div>
