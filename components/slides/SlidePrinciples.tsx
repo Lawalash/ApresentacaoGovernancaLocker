@@ -7,7 +7,7 @@ const PRINCIPLES = [
   "Checklist mínimo antes de executar",
   "Prioridade definida antes de iniciar",
   "Execução com responsáveis claros",
-  "Validação simples de “pronto”",
+  'Validação simples de "pronto"',
   "Comunicação e treinamento fazem parte do processo",
   "Registro do que foi feito (rastreabilidade)",
   "Redução de ruído e retrabalho",
@@ -37,21 +37,23 @@ export const SlidePrinciples: React.FC = () => {
         </div>
 
         {/* Coluna direita (lista) */}
-        <div className="w-2/3 flex flex-col pr-2 overflow-hidden">
-          {/* reduz espaçamento para caber na tela */}
-          <div className="space-y-2">
+        <div className="w-2/3 flex flex-col">
+          <div className="space-y-3">
             {PRINCIPLES.map((principle, index) => (
               <div
                 key={principle}
-                className="flex items-start gap-4 pb-2 border-b border-[#225B8E]/10 last:border-b-0"
+                className="flex items-start gap-4 pb-3 border-b border-[#225B8E]/10 last:border-b-0"
               >
-                <p className="text-sm leading-snug text-slate-800 font-poppins font-semibold">
-                  {String(index + 1).padStart(2, "0")}.
-                  <span className="ml-2 text-slate-700 font-medium">{principle}</span>
-                </p>
+                <div className="flex-1">
+                  <p className="text-sm leading-relaxed text-slate-800 font-poppins font-semibold">
+                    {String(index + 1).padStart(2, "0")}.
+                    <span className="ml-2 text-slate-700 font-medium">{principle}</span>
+                  </p>
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </div>
