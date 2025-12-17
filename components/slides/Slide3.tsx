@@ -97,31 +97,37 @@ const Slide3: React.FC = () => {
           />
         </div>
 
-        {/* Linha 2: Foco em Execução e Entrega (3 cards centralizados) */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-[75%]">
-            <StepCard
-              number={5}
-              title="Entrada na Esteira"
-              desc="Checklist preenchido define a prioridade e a janela de agendamento."
-              icon={<FileText />}
-            />
+        {/* Linha 2: Foco em Análise, Execução e Entrega (4 cards) */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <StepCard
+            number={5}
+            title="Entrada na Esteira"
+            desc="Checklist preenchido define a prioridade e a janela de agendamento."
+            icon={<FileText />}
+          />
 
-            <StepCard
-              number={6}
-              title="Execução"
-              desc="CMD, Sistemas e TI realizam as configurações e atualizam o chamado."
-              icon={<PlayCircle />}
-            />
+          <StepCard
+            number={6}
+            title="Governança Locker"
+            desc="Agenda de alinhamento executiva e estudos de viabilidade para organizar a esteira."
+            highlight
+            icon={<Search />}
+          />
 
-            <StepCard
-              number={7}
-              title="Conclusão"
-              desc="Governança valida o 'Pronto', encerra o fluxo e comunica a operação."
-              highlight
-              icon={<CheckCircle />}
-            />
-          </div>
+          <StepCard
+            number={7}
+            title="Execução"
+            desc="CMD, Sistemas e TI realizam as configurações e atualizam o chamado."
+            icon={<PlayCircle />}
+          />
+
+          <StepCard
+            number={8}
+            title="Conclusão"
+            desc="Governança valida o 'Pronto', encerra o fluxo e comunica a operação."
+            highlight
+            icon={<CheckCircle />}
+          />
         </div>
       </div>
 
