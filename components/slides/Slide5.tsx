@@ -2,16 +2,16 @@ import React from 'react';
 import { Search, Users, Settings, MessageCircle, GraduationCap, Flag } from 'lucide-react';
 
 const ActionCard: React.FC<{ icon: React.ReactNode; title: string; step: number }> = ({ icon, title, step }) => (
-  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl border-t-4 border-[#3699BA] flex flex-col items-center text-center gap-4 h-full transition-all duration-300 hover:-translate-y-1">
-    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 font-bold text-xs mb-[-12px] z-10 relative">
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl border-t-4 border-[#3699BA] flex flex-col items-center text-center gap-3 h-full transition-all duration-300 hover:-translate-y-1">
+    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 font-bold text-xs mb-[-8px] z-10 relative">
         {step}
     </div>
-    <div className="p-4 bg-[#3699BA]/10 rounded-full text-[#225B8E] transition-colors hover:bg-[#3699BA]/20">
-        <div className="w-8 h-8">
+    <div className="p-4 bg-[#3699BA]/10 rounded-full text-[#225B8E] transition-colors hover:bg-[#3699BA]/20 flex items-center justify-center">
+        <div className="w-8 h-8 flex items-center justify-center">
             {icon}
         </div>
     </div>
-    <h3 className="font-bold text-gray-700 font-rubik text-lg leading-tight mt-2">{title}</h3>
+    <h3 className="font-bold text-gray-700 font-rubik text-lg leading-tight">{title}</h3>
   </div>
 );
 
