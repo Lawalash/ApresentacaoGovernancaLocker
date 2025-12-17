@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Layout from "./components/Layout";
 
 import Slide0 from "./components/slides/Slide0";
@@ -22,41 +22,52 @@ const App: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const slides: SlideConfig[] = [
-    // 1) Capa
+    // SLIDE 1: Capa
     { component: <Slide1 />, title: "", subtitle: "", hideHeader: true },
 
-    // 2) Principles (sem header global do Layout)
+    // SLIDE 2: Princípios Inegociáveis
     { component: <SlidePrinciples />, title: "", subtitle: "", hideHeader: true },
 
-    // 3) Trilho A
-    { component: <Slide3 />, title: "Trilho A: Novas Operações", subtitle: "Fluxo de Pedido de Locker" },
-
-    // 4) Contexto
+    // SLIDE 3: Contexto
     { component: <Slide2 />, title: "Contexto", subtitle: "O que funciona + Onde nasce o ruído" },
 
-    // 5) Abertura (se quiser que esse venha antes do Contexto, é só trocar a posição)
+    // SLIDE 4: Abertura / Por que estamos aqui
     { component: <Slide0 />, title: "Abertura", subtitle: "Alinhamento Executivo | Governança Locker" },
 
-    // 6) Checklist
+    // SLIDE 5: Trilho A (O fluxo que acabamos de otimizar)
+    { component: <Slide3 />, title: "Trilho A: Novas Operações", subtitle: "Fluxo de Pedido de Locker" },
+
+    // SLIDE 6: Checklist
     { component: <Slide4 />, title: "Checklist Padrão", subtitle: "Filtro de entrada da Governança" },
 
-    // 7) Trilho B
+    // SLIDE 7: Trilho B
     { component: <Slide5 />, title: "Trilho B: Governança Ativa", subtitle: "Nós vamos até a operação (Modelo BTG)" },
 
-    // 8) Operação em Paralelo
+    // SLIDE 8: Operação em Paralelo
     { component: <Slide6 />, title: "Operação em Paralelo", subtitle: "Como rodamos sem conflitos" },
 
-    // 9) Próximos passos
+    // SLIDE 9: Próximos passos
     { component: <Slide7 />, title: "Aprovações & Próximos Passos", subtitle: "Saídas do encontro de hoje" },
   ];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlideIndex((prev) => Math.min(prev + 1, slides.length - 1));
-  };
+  }, [slides.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlideIndex((prev) => Math.max(prev - 1, 0));
-  };
+  }, []);
+
+  // Navegação por Teclado
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") nextSlide();
+      if (event.key === "ArrowLeft") prevSlide();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, prevSlide]);
 
   const currentSlideConfig = slides[currentSlideIndex];
 
