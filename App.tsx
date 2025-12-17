@@ -10,6 +10,7 @@ import Slide4 from "./components/slides/Slide4";
 import Slide5 from "./components/slides/Slide5";
 import Slide6 from "./components/slides/Slide6";
 import Slide7 from "./components/slides/Slide7";
+import Slide8 from "./components/slides/Slide8";
 
 type SlideConfig = {
   component: React.ReactNode;
@@ -48,6 +49,9 @@ const App: React.FC = () => {
 
     // SLIDE 9: Próximos passos
     { component: <Slide7 />, title: "Aprovações & Próximos Passos", subtitle: "Saídas do encontro de hoje" },
+
+    // SLIDE 10: Próximos passos
+    { component: <Slide8 />, title: "Finalização", subtitle: "Finalização" },
   ];
 
   const nextSlide = useCallback(() => {
