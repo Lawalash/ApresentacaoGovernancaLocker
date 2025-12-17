@@ -33,7 +33,7 @@ const Slide7: React.FC = () => {
       {/* Col 2: Próximos Passos */}
       <div className="flex-1">
         <h3 className="text-2xl font-bold font-rubik text-[#3699BA] mb-6 flex items-center gap-2">
-            <ArrowRightCircle /> Próximos 7 Dias
+            <ArrowRightCircle /> Próximos dias
         </h3>
 
         <div className="bg-[#3699BA]/10 rounded-2xl p-8 relative">
