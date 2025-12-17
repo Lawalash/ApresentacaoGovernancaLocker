@@ -26,7 +26,7 @@ const Layout: React.FC<LayoutProps> = ({
   const isLast = currentSlide === totalSlides - 1;
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden font-poppins text-slate-800">
+    <div className="flex h-screen w-screen overflow-hidden bg-white font-poppins text-slate-800">
       
       {/* Sidebar Left - SEU CÓDIGO ORIGINAL RESTAURADO */}
       <aside className="h-full w-[4%] min-w-[70px] bg-gradient-to-b from-[#225B8E] to-[#2A898D] flex flex-col justify-end items-center pb-12 shadow-2xl z-20 shrink-0">
@@ -65,7 +65,7 @@ const Layout: React.FC<LayoutProps> = ({
         <main className="flex-1 px-16 py-8 overflow-hidden">{children}</main>
 
         {/* Navigation - APENAS ESTE BLOCO FOI ALTERADO: < 01/09 > (Sem Blur) */}
-        <footer className="absolute bottom-6 right-8 flex items-center gap-2 z-50 bg-white px-2 py-1">
+        <footer className="absolute bottom-6 right-8 flex items-center gap-2 z-50 px-2 py-1">
           <button
             onClick={onPrev}
             disabled={isFirst}
