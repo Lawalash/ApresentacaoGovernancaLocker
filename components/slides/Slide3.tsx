@@ -1,12 +1,13 @@
 import React from "react";
 import { 
-  Mail, 
   Server, 
   Users, 
   CheckCircle, 
   Search, 
   FileText, 
-  PlayCircle 
+  PlayCircle,
+  ShieldCheck,
+  Filter
 } from "lucide-react";
 
 const StepCard: React.FC<{
@@ -64,67 +65,66 @@ const Slide3: React.FC = () => {
       {/* Container Principal do Fluxo */}
       <div className="flex-1 flex flex-col justify-center gap-8">
         
-        {/* Linha 1: Foco em Início e Formalização (4 cards) */}
+        {/* Linha 1: Entrada e Triagem (4 cards) */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <StepCard
             number={1}
             title="Solicitação"
-            desc="Operação sinaliza a necessidade de Locker ou Agente via canais oficiais."
+            desc="Operação sinaliza necessidade de Locker ou Agente ao Planejamento."
             icon={<Users />}
           />
 
           <StepCard
             number={2}
-            title="Abertura de Chamado"
-            desc="Planejamento abre chamado oficial no Gestão X / Help Tech para rastreabilidade."
+            title="Abertura (Gestão X)"
+            desc="Planejamento abre chamado oficial. Fim das solicitações paralelas por e-mail."
             highlight
             icon={<Server />}
           />
 
           <StepCard
             number={3}
-            title="Formalização"
-            desc="Envio de E-MAIL PADRÃO para Governança com o número do chamado gerado."
-            highlight
-            icon={<Mail />}
+            title="Triagem N1 (Sustentação)"
+            desc="Warlean filtra: Se for erro, corrige. Se for Implantação, encaminha para Governança."
+            icon={<ShieldCheck />}
           />
 
           <StepCard
             number={4}
-            title="Triagem"
-            desc="Governança analisa a viabilidade e responde com o checklist obrigatório."
-            icon={<Search />}
+            title="Triagem N2 (Governança)"
+            desc="Recebemos a demanda validada e analisamos a viabilidade estratégica."
+            highlight
+            icon={<Filter />}
           />
         </div>
 
-        {/* Linha 2: Foco em Análise, Execução e Entrega (4 cards) */}
+        {/* Linha 2: Definição e Execução (4 cards) */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <StepCard
             number={5}
-            title="Entrada na Esteira"
-            desc="Checklist preenchido define a prioridade e a janela de agendamento."
+            title="Checklist & Regras"
+            desc="Solicitamos via chamado as definições técnicas (VDI, Rede, Ponto)."
             icon={<FileText />}
           />
 
           <StepCard
             number={6}
-            title="Governança Locker"
-            desc="Agenda de alinhamento executiva e estudos de viabilidade para organizar a esteira."
-            highlight
+            title="Agendamento"
+            desc="Com o checklist OK, definimos a data de execução conforme a fila."
             icon={<Search />}
           />
 
           <StepCard
             number={7}
-            title="Execução"
-            desc="CMD, Sistemas e TI realizam as configurações e atualizam o chamado."
+            title="Execução Técnica"
+            desc="CMD/TI recebe o chamado já 'mastigado' e apenas executa a configuração."
             icon={<PlayCircle />}
           />
 
           <StepCard
             number={8}
-            title="Conclusão"
-            desc="Governança valida o 'Pronto', encerra o fluxo e comunica a operação."
+            title="Validação Final"
+            desc="Governança homologa o funcionamento e encerra o chamado no sistema."
             highlight
             icon={<CheckCircle />}
           />
@@ -135,11 +135,11 @@ const Slide3: React.FC = () => {
       <div className="mt-8">
         <div className="bg-[#225B8E]/5 border border-[#225B8E]/20 rounded-2xl p-4 flex items-center justify-center gap-4">
           <div className="bg-[#225B8E] p-2 rounded-lg">
-            <Mail className="text-white w-5 h-5" />
+            <Server className="text-white w-5 h-5" />
           </div>
           <p className="text-[#225B8E] font-poppins font-semibold text-sm md:text-base italic">
-            Importante: <span className="font-normal text-slate-700">E-mail e Teams servem para acompanhamento. O </span> 
-            chamado é indispensável <span className="font-normal text-slate-700">para a execução.</span>
+            Regra de Ouro: <span className="font-normal text-slate-700">Não aceitamos demandas por e-mail/Teams. </span> 
+            Tudo deve estar registrado no <span className="font-normal text-slate-700">Chamado (Gestão X)</span> para auditoria.
           </p>
         </div>
       </div>
